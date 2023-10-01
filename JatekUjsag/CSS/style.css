@@ -446,8 +446,20 @@ td, th {
     box-shadow: 0.5px 0.5px lightblue;
 }
 
-.bejelentkezes-form input[type="email"], .bejelentkezes-form input[type="password"] {
+.bejelentkezes-form input[type="email"] {
     width: 90%;
+    position: relative;
+    bottom: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.bejelentkezes-form input[type="password"]{
+    width: 85%;
+    position: relative;
+    bottom: 10px;
     margin-bottom: 5px;
     padding: 5px;
     border-radius: 10px;
@@ -456,6 +468,8 @@ td, th {
 
 .bejelentkezes-form input[type="submit"] {
     background-color: #4CAF50;
+    position: relative;
+    bottom: 8px;
     width: 50%;
     color: white;
     padding: 5px 10px;
@@ -470,6 +484,9 @@ td, th {
 
 .regb {
     background-color: #479ece;
+    position: relative;
+    bottom: 8px;
+    left: 2px;
     width: 50%;
     color: white;
     padding: 5px 10px;
