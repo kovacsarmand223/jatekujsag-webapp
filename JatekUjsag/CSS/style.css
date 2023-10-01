@@ -1,0 +1,595 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #303646; /*#303646 or #161920*/
+}
+
+#fejlec {
+    background-color: #000000;
+    color: #fff;
+    padding: 50px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    transition: 0.2s;
+    top: 0;
+    z-index: 999;
+    text-align: center;
+    width: 99%;
+    
+}
+
+#fejlec-videok{
+    background-color: #000000;
+    color: #fff;
+    padding: 50px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    transition: 0.2s;
+    top: 0;
+    z-index: 999;
+    text-align: center;
+    width: 99%;
+}
+iframe{
+    border: none;
+}
+
+.focim a{
+    color:rgb(187, 173, 173);
+    text-decoration: none;
+    font-size: 30px;
+    transition: color 0.3s ease-in-out;
+}
+
+.focim a:hover {
+    color:rgb(71, 158, 206);
+}
+/*
+navbar elemek kozott hely
+*/
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-fooldal a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-fooldal a:hover{
+    color: rgb(45, 58, 130);
+}
+
+.leugro-nav {
+display: none;
+position: relative;
+background-color: #646256;
+border: 1px solid black;
+padding-left: 0;
+padding-bottom: 0;
+margin: 0;
+
+/*z - index: takaras*/
+z-index: 1;
+
+margin-left: 100px;
+transform: translate(10%, -1%);
+}
+
+.leugro-nav li{
+    list-style: none;
+}
+
+.leugro-nav li a{
+     display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.leugro-nav li a:hover {
+    background-color: #303646;
+    
+}
+    
+.nav-leugro-videok:hover .leugro-nav {
+display: block;
+}
+
+nav a.aktiv-gomb{
+    color:rgb(45, 58, 130)
+}
+  
+.alcimek{
+    text-align: center;
+}
+
+.main-udv-h2 {
+    width: 100%;
+    height: 100px;
+    background-color: #4051B5;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+    font-size: 30px;
+}    
+
+.container {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container article {
+    flex: 0 1 300px;
+    margin: 10px;
+    position: relative;
+    
+}
+
+.teljes-szoveg{
+    height: 100px;
+    display: none;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: rgb(45, 75, 100);
+    max-width: 40%;
+    max-height: 40%;
+    overflow: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.reszponziv-embed-video{
+    border-radius: 10px;
+    margin: 1rem;
+}
+
+.fooldal-cikk {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 30px;
+    box-shadow: 2px 2px rgb(68, 78, 87);
+}
+
+.fooldal-cikk img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.fooldal-cikk a {
+    display: block;
+    margin-top: 10px;
+    color: #479ece;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+article a:hover{
+    color:rgb(68, 78, 87);
+    cursor: pointer;
+}
+
+.fooldal-tablazat, .profil-gep-tablazat{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.profil-ujgep-tablazat{
+    width: 100%;
+}
+
+.profil-ujgep-tablazat td{
+    height: 50px;
+}
+
+.profil-gomb{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.profil-gomb:hover{
+    background-color: #3b863e;
+}
+
+.profil-article [type=text], [type=email], [type=date], [type=file] select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.adattorles-gomb{
+    background-color: #a5151c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.adattorles-gomb:hover{
+    background-color: #7a0a0aef;
+}
+
+.forum-article [type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+table{
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  
+
+.keresok {
+    width: 100px;
+    margin: 0 auto;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0.5px 0.5px lightblue;
+}
+
+.fooldal-kereso-form{
+    position: relative;
+    left: -300px;
+    top: 1px;
+    width: 200px;
+}
+
+
+#kereso-submit{
+    cursor: pointer;
+}
+
+#kereso-submit:hover{
+    background-color: rgb(45, 58, 130)
+}
+
+/* itt majd meg meg akarom valositani, hogy egy icon megnyomasara jelenik meg a bejelentkezes form*/
+
+.hirek-article {
+    display: flex;
+    padding: 10px;
+    position: relative;
+    top: 25%;
+    left: 25%;
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 30px;
+    box-shadow: 2px 2px rgb(68, 78, 87);
+}
+
+.hirek-article img{
+    width: 100px;
+    height: 100px;
+}
+
+.hirek-article-body{
+    padding-left: 30px;
+}
+
+.hirek-article-cim{
+    justify-self: center;
+}
+
+.forum-container{
+    margin: 20px;
+    padding: 20px;
+}
+
+.forum-article{
+    flex-wrap: wrap;
+    position: relative;
+    top: 25%;
+    left: 25%;
+    width: calc(50% - 20px);
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+.forum-article-focim{
+    background-color: rgb(71, 158, 206);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 4px;
+}
+
+.forum-article h1{
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.forum-article-body{
+    
+    max-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.forum-article-body-oszlopok{
+    padding: 10px;
+    margin: 4px;
+    border-radius: 5px;
+    background-color:  rgb(44, 93, 119);
+}
+
+.forum-article-profil img{
+    width: 50px;
+    height: 50px;
+}
+
+.forum-article-profil h1{
+    padding-left: 10px;
+}
+
+.kozepre-igazit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profil-article{
+    position: relative;
+    top: 25%;
+    left: 25%;
+    width: calc(50% - 20px);
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+.profil-container h1{
+    color: #ffffff;
+}
+
+.profilkep{
+    margin: 5px;
+    width: 350px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.bejelentkezes-form {
+    position: absolute;
+    top: -1;
+    right: 0;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    height: 85px;
+    background-color: #f5f5f5;
+    border: 1px solid #423434;
+    border-radius: 10px;
+    box-shadow: 0.5px 0.5px lightblue;
+}
+
+.bejelentkezes-form input[type="email"], .bejelentkezes-form input[type="password"] {
+    width: 90%;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.bejelentkezes-form input[type="submit"] {
+    background-color: #4CAF50;
+    width: 50%;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.bejelentkezes-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.regb {
+    background-color: #479ece;
+    width: 50%;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.regb:hover {
+    background-color: #3189b9;
+}
+
+.wrapper {
+    width: 330px;
+    padding: 2rem 1rem 1rem;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1)
+}
+
+.kitolto-form input {
+    width: 92%;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: #e4e4e4;
+}
+
+
+.floating-label {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .floating-label label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.2rem;
+    color: #888;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+  }
+  
+  .floating-label input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .floating-label input:not(:placeholder-shown) + label,
+  .floating-label input:focus + label {
+    top: -1.5rem;
+    font-size: 1rem;
+    color: #007bff;
+  }
+
+.kitoltoformBtn {
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    padding: 10px 0;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 90%;
+    color: #fff;
+    cursor: pointer;
+    background: #2b79a4;
+}
+
+.kitoltoformBtn:hover {
+        background-color: #226183;
+}
+
+.input[type="submit"]:hover {
+    background: rgb(71, 92, 206);
+}
+
+.belep {
+    text-align: center;
+    margin-top: 1.8rem;
+}
+
+
+/* Footer */
+footer {
+    position: static;
+    background-color: #16171d;
+    color: white;
+    padding: 40px;
+}
+
+footer h5 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
