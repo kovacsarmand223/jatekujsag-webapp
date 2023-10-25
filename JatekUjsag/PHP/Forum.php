@@ -122,89 +122,83 @@
 
 
 
-    <!--tartalom-->
-    <main class="forum-tartalom">
-        <div class="forum-container">
-            <div class="forum-article">
-                <div class="forum-article-focim">
-                    <h1>Áltálanos: </h1>
-                </div>
-                <div class="forum-article-body">
-                    <div class="forum-article-profil forum-article-body-oszlopok kozepre-igazit">
-                        <img src="../Assets/Pic1.png" alt="HogwartsLegacy">
-                        <h1>Pistike223</h1>
-                    </div> 
-                    <div class="forum-article-alcim forum-article-body-oszlopok bejegyzes-szam">
-                        <h1>Keresek valamit</h1>
-                        <p>Sziasztok!
-                            Nem egy játékot keresek pontosan, hanem egy közösségi szerű oldalt. Csak nosztalgiából, biztos, hogy már nem létezik, csak érdekelne, hogy mi volt a neve. Régen, olyan 2005 körül, talán kicsit később, nagyon sokat fent voltam ezen, tudtál karaktert választani magadnak és igazi emberekkel chatelni, különböző helyszíneken, például egy kreált discoban. Bárhogy kerestem semmi hasonlót nem találtam, pedig nagyon szerettem anno tinikoromban ezen lógni. Hátha valaki használta még rajtam kívül</p>
-                    </div>
-                    <div class="forum-article-informaciok forum-article-body-oszlopok">
-                        <span>10 bejegyzés</span>
-                    </div>
-                    <div class="forum-article-datum forum-article-body-oszlopok">
-                        <span>2023.03.15.</span>
-                    </div>
-                    <div class="forum-article-like forum-article-body-oszlopok">
-                        <span>Tetszik: 10</span>
-                    </div>
-                </div>
-                <div class="forum-article-hozzaszolas forum-article-body-oszlopok">
-                    <form action="#">
-                    <input type="text" class="komment" name="komment" placeholder="Hozzászólás..."><br><br>
-                    </form>
-                </div> 
-                <div class="forum-article-body">
-                    <div class="forum-article-profil forum-article-body-oszlopok kozepre-igazit">
-                        <img src="../Assets/Pic2.png" alt="HogwartsLegacy">
-                        <h1>TheGamerBoy123</h1>
-                    </div> 
-                    <div class="forum-article-alcim forum-article-body-oszlopok">
-                        <h1>Kedvenc játékom</h1>
-                        <p>Hát nehéz egyet kiválasztani. Fallout széria nálam iszonyat durva függést okoz, vigyáznom kell vele ha elkezdem mert nem bírok leakadni róla és képes vagyok egy évre elmerülni a világában :D Ezen kívül a klasszikus Assassin's Creed részek (1-2 Brotherhood, Revelations) nagy kedvencek és a Dishonored széria is megunhatatlan számomra. Amnesia+kiegészítői, SOMA, Plague Tale Innocence és már a Requiem is felcsúszott nálam a TOP10-be.</p>
-                    </div>
-                    <div class="forum-article-informaciok forum-article-body-oszlopok">
-                        <span>108 bejegyzés</span>
-                    </div>
-                    <div class="forum-article-datum forum-article-body-oszlopok">
-                        <span>2023. 03. 12.</span>
-                    </div>
-                    <div class="forum-article-datum forum-article-body-oszlopok">
-                        <span>Tetszik: 89</span>
-                    </div>
-                </div>
-                <div class="forum-article-hozzaszolas forum-article-body-oszlopok">
-                    <form action="#">
-                    <input type="text" class="komment" name="komment" placeholder="Hozzászólás..."><br><br>
-                    </form>
-                </div>
-                <div class="forum-article-body">
-                    <div class="forum-article-profil forum-article-body-oszlopok kozepre-igazit">
-                        <img src="../Assets/Pic3.png" alt="HogwartsLegacy">
-                        <h1>zöldfülű19</h1>
-                    </div> 
-                    <div class="forum-article-alcim forum-article-body-oszlopok">
-                        <h1>Mi lehet a probléma?</h1>
-                        <p>A Steam_api64.dll nem marad bent a Gta főkönyvtárában akár hányszor beillesztem. Igy indításkor mindíg a Steam failed to initialize Please exit and try again felirat jön be. Próbáltam egyedül magában is a fájlt berakni és egyben a Crack többi fájljával is,de sosem marad bent a Steam_api64.dll. Tud valaki erre megoldást miért lehet és mit lehet ilyenkor tenni? Előre is nagyon köszönöm!</p>
-                    </div>
-                    <div class="forum-article-informaciok forum-article-body-oszlopok">
-                        <span>1 bejegyzés</span>
-                    </div>
-                    <div class="forum-article-datum forum-article-body-oszlopok">
-                        <span>2023. 03. 19.</span>
-                    </div>
-                    <div class="forum-article-datum forum-article-body-oszlopok">
-                        <span>Tetszik: 2</span>
-                    </div>
-                </div>
-                <div class="forum-article-hozzaszolas forum-article-body-oszlopok">
-                    <form action="#">
-                    <input type="text" class="komment" name="komment" placeholder="Hozzászólás..."><br><br>
-                    </form>
-                </div>  
-            </div>
-        </div>
-    </main>
+<!--tartalom-->
+<main class="forum-content">
+    <section class="forum-container">
+        <?php
+        $query = "SELECT uzenetiras.FelhasznaloNev, uzenetiras.UzenetId, felhasznalo.kep, uzenet.UzenetLike,
+        uzenet.UzenetCim, uzenet.UzenetDatum, uzenet.UzenetSzoveg, valaszok.Valaszok,
+        valaszok.ValaszokDatum, valaszok.ValaszLike 
+        FROM uzenetiras 
+        INNER JOIN felhasznalo ON uzenetiras.FelhasznaloNev = felhasznalo.FelhasznaloNev
+        INNER JOIN uzenet ON uzenet.UzenetId = uzenetiras.UzenetId
+        LEFT JOIN valaszok ON valaszok.UzenetId = uzenetiras.UzenetId";
+
+        if (!empty($query)) {
+            $result = mysqli_query($conn, $query);
+        }
+        if ($result && mysqli_num_rows($result) != 0) {
+            $posts = []; // Ebben a tömbben tároljuk az összes bejegyzést
+            
+            while ($row = mysqli_fetch_assoc($result)) {
+                $postId = $row['UzenetId']; // Az aktuális bejegyzés azonosítója
+                
+                // Ha ez az első alkalom, hogy találkozunk ezzel az ÜzenetId-val, hozzunk létre egy új bejegyzést
+                if (!isset($posts[$postId])) {
+                    $posts[$postId] = [
+                        'kep' => $row['kep'],
+                        'FelhasznaloNev' => $row['FelhasznaloNev'],
+                        'UzenetCim' => $row['UzenetCim'],
+                        'UzenetSzoveg' => $row['UzenetSzoveg'],
+                        'UzenetLike' => $row['UzenetLike'],
+                        'Valaszok' => [], // Itt tároljuk a válaszokat
+                    ];
+                }
+                
+                // Hozzáadjuk a választ az adott bejegyzéshez
+                $posts[$postId]['Valaszok'][] = [
+                    'ValaszSzoveg' => $row['Valaszok'],
+                    'ValaszLike' => $row['ValaszLike'],
+                    'Felhasznalonev' => $row['FelhasznaloNev'],
+                ];
+            }
+            
+            // Most már a $posts tömb tartalmazza az összes bejegyzést és hozzátartozó válaszokat
+            
+            // A bejegyzések kiírása
+            foreach ($posts as $postId => $post) {
+                echo '<article class="forum-article">';
+                echo '<div class="forum-article-content">';
+                echo '<div class="forum-article-profil">';
+                if(!empty($post['kep'])){
+                    echo '<img src="../Assets/' . $post['kep'] . '" alt="' . $post['FelhasznaloNev'] . ' profilkepe">';
+                }else{
+                    echo '<img src="../Assets/default_prof_pic.jpg' . '" alt="' . $post['FelhasznaloNev'] . ' profilkepe">';
+                }
+                echo '<b>' . $post['FelhasznaloNev'] . '</b>';
+                echo '</div>';
+                echo '<h2>' . $post['UzenetCim'] . '</h2>';
+                echo '<p>' . $post['UzenetSzoveg'] . '</p>';
+                echo '<span>Tetszik: ' . $post['UzenetLike'] . '</span>';
+
+                // Válaszok kiírása
+                foreach ($post['Valaszok'] as $valasz) {
+                    echo '<hr>';
+                    echo '<div class="forum-article-info">';
+                    echo '<b>' . $valasz['Felhasznalonev']. '</b>';
+                    echo '<p>' . $valasz['ValaszSzoveg']. '</p>';
+                    echo '<span>Tetszik: ' . $valasz['ValaszLike'] . '</span>';
+                    echo '</div>';
+                }
+                
+                echo '</article>';
+            }
+        }
+        ?>
+    </section>
+</main>
+
+
     <!--lablec-->
     <footer>
         <p>GameSpace &copy; 2023</p>

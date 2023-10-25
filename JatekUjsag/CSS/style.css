@@ -355,62 +355,57 @@ td, th {
     justify-self: center;
 }
 
-.forum-container{
-    margin: 20px;
+
+.forum-content {
+    background-color: #303646;
     padding: 20px;
-}
-
-.forum-article{
-    flex-wrap: wrap;
-    position: relative;
-    top: 25%;
-    left: 25%;
-    width: calc(50% - 20px);
-    margin-top: 20px;
-    border-radius: 30px;
-}
-
-.forum-article-focim{
-    background-color: rgb(71, 158, 206);
-    padding: 5px;
-    border-radius: 5px;
-    margin: 4px;
-}
-
-.forum-article h1{
-    font-size: 16px;
-    font-weight: bolder;
-}
-
-.forum-article-body{
-    
-    max-height: 500px;
     display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+}
+
+.forum-container {
     flex-wrap: wrap;
-    align-items: stretch;
+    justify-content: center;
+    align-items: flex-start; /* Vertically align content at the top */
 }
 
-.forum-article-body-oszlopok{
-    padding: 10px;
-    margin: 4px;
-    border-radius: 5px;
-    background-color:  rgb(44, 93, 119);
+.forum-article {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    font-size: 18px;
+    width: 1000px;
+    white-space: pre-wrap;
 }
 
-.forum-article-profil img{
+.forum-article-profil img {
     width: 50px;
     height: 50px;
+    border-radius: 50%;
+}
+.forum-article-profil b{
+    left: 20px;
 }
 
-.forum-article-profil h1{
-    padding-left: 10px;
+.forum-article h2 {
+    font-size: 24px;
+    margin: 10px 0;
 }
 
-.kozepre-igazit{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.forum-article p {
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
 }
+
+.forum-article-info {
+    font-size: 14px;
+    color: #777;
+}
+
 
 .profil-article{
     position: relative;
